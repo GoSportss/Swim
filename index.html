@@ -1,53 +1,372 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <title>[swimGo] 隐私政策</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: -apple-system, sans-serif; line-height: 1.6; max-width: 700px; margin: 40px auto; padding: 0 20px; }
-        h1 { color: #333; }
+        :root {
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --accent: #fbbc04;
+            --text: #202124;
+            --text-light: #5f6368;
+            --bg: #ffffff;
+            --bg-light: #f8f9fa;
+            --border: #dadce0;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: #f5f7fa;
+            padding: 20px;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: var(--bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), #0d47a1);
+            color: white;
+            padding: 45px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.15rem;
+            opacity: 0.92;
+            font-weight: 400;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .effective-date {
+            background-color: var(--bg-light);
+            padding: 18px 40px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .effective-date strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .content {
+            padding: 45px 40px;
+        }
+        
+        .section {
+            margin-bottom: 42px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 2.2rem;
+            margin-right: 12px;
+            line-height: 1;
+        }
+        
+        .highlight-box {
+            background-color: var(--bg-light);
+            border-left: 4px solid var(--secondary);
+            padding: 22px 25px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        p {
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+        
+        ul, ol {
+            margin: 18px 0 18px 25px;
+            padding-left: 5px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            padding-left: 8px;
+            color: var(--text);
+        }
+        
+        .nested-list {
+            margin: 10px 0 10px 25px;
+            list-style-type: circle;
+        }
+        
+        .contact-info {
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info strong {
+            min-width: 80px;
+            color: var(--primary);
+        }
+        
+        .update-notice {
+            font-style: italic;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px dashed var(--border);
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 15px;
+            }
+            
+            .container {
+                margin: 15px auto;
+                border-radius: 12px;
+            }
+            
+            .header {
+                padding: 35px 25px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header .subtitle {
+                font-size: 1.05rem;
+            }
+            
+            .content {
+                padding: 35px 25px;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .effective-date, .content {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .highlight-box {
+                padding: 18px 20px;
+            }
+        }
+        
+        .data-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .data-type-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .data-type-item::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
-    <h1>[swimGo] 隐私政策</h1>
-    [swimGo]（以下简称“本应用”）高度重视您的隐私。本政策旨在清晰、透明地说明我们如何对待您的信息，特别是您的健康数据。
-核心承诺：本应用是一款纯粹的本地处理应用。您所有的个人及健康数据仅存储在您自己的设备上（或您个人控制的iCloud账户内），我们（开发者）绝不会收集、上传、存储或分享您的任何个人数据。
-1. 我们收集的信息
-我们不主动收集任何可识别您个人身份的信息（PII）。本应用的功能依赖于您设备上已有的数据：
-* 健康数据（通过苹果HealthKit框架）：
-    * 在您明确授权后，本应用仅会读取您苹果“健康”App中与游泳运动相关的数据，用于分析和展示。这些数据可能包括：
-        * 游泳距离、游泳趟数
-        * 平均泳速、SWOLF分数
-        * 消耗的活跃能量/卡路里
-        * 游泳时长、下水时间
-    * 重要：本应用只会请求它功能所必需的最小数据子集。您可以在 iOS 系统的“设置” > “隐私” > “健康” > [您的游泳应用名称] 中，随时查看和撤销对本应用的数据访问权限。
-2. 我们如何使用您的信息
-所有通过上述方式获取的数据，仅用于在您的设备上为您提供以下核心功能：
-* 在应用内可视化展示您的游泳历史记录和统计趋势。
-* 为您计算和分析游泳表现指标（如每趟平均时间、效率变化）。
-* 生成仅供您个人查看的图表和摘要。
-我们不会将您的数据用于：
-* 广告投放或营销。
-* 数据挖掘或分析以用于任何商业目的。
-* 与任何第三方（包括广告商、数据分析公司或其他服务提供商）分享、出售或出租。
-3. 数据的存储与安全
-* 本地存储：您的所有游泳数据和分析结果都安全地存储在您自己的iOS设备本地沙箱中。这意味着数据物理上只存在于您的手机或平板电脑上。
-* 可选iCloud同步（如提供此功能）：如果您启用了iCloud同步功能，您的数据将通过苹果的iCloud服务在您个人名下的不同苹果设备之间加密同步。此过程由苹果公司控制，我们无法访问您的iCloud数据。您可以在iOS设备“设置”中管理iCloud同步。
-* 无服务器传输：我们没有后端服务器，因此您的健康数据永远不会离开您的设备或您的个人iCloud账户。
-4. 数据共享
-我们绝不共享您的个人或健康数据。这是本应用设计的基石。
-5. 您的权利与控制
-您对自己的数据拥有完全的控制权：
-* 访问与删除：您可以在本应用内直接查看、管理或删除所有由本应用生成的数据记录。
-* 健康数据权限：您可以在任何时候，通过 iOS 的“设置” > “隐私” > “健康” > [swimGo]，完全关闭本应用对健康数据的访问权限。关闭后，本应用将无法读取新的健康数据，但已存储在应用本地的数据（如有）仍会保留，除非您手动删除。
-* 彻底删除：卸载本应用将同时删除设备本地存储的所有相关数据。如果您曾使用iCloud同步，需在iCloud设置中删除相关数据。
-6. 隐私政策的变更
-我们可能会不时更新本隐私政策。任何更改将在本页面发布更新后的隐私政策后生效。对于重大变更，我们将在应用内通过显著通知告知您。
-7. 联系我们
-如果您对本隐私政策或本应用的数据处理方式有任何疑问、意见或疑虑，请通过以下方式联系我们：
-* 开发者：[游杜]
-* 电子邮箱：[alexdyllmm@gmail.com]
-<p>最后更新日期：2026年01月27日</p>
+    <div class="container">
+        <div class="header">
+            <h1>[swimGo] 隐私政策</h1>
+            <p class="subtitle">本应用高度重视您的隐私。本政策旨在清晰、透明地说明我们如何对待您的信息，特别是您的健康数据。</p>
+        </div>
+        
+        <div class="effective-date">
+            <strong>最后更新日期：</strong>2026年01月27日
+        </div>
+        
+        <div class="content">
+            <div class="highlight-box">
+                <p><strong>核心承诺：</strong>本应用是一款纯粹的本地处理应用。您所有的个人及健康数据仅存储在您自己的设备上（或您个人控制的iCloud账户内），我们（开发者）绝不会收集、上传、存储或分享您的任何个人数据。</p>
+            </div>
+            
+            <section class="section">
+                <h2 class="section-title">1. 我们收集的信息</h2>
+                <p>我们不主动收集任何可识别您个人身份的信息（PII）。本应用的功能依赖于您设备上已有的数据：</p>
+                
+                <h3 style="color: var(--secondary); margin: 20px 0 15px 0; font-weight: 600;">健康数据（通过苹果HealthKit框架）：</h3>
+                
+                <ul>
+                    <li>在您明确授权后，本应用仅会读取您苹果“健康”App中与游泳运动相关的数据，用于分析和展示。</li>
+                    <li><strong>重要：</strong>本应用只会请求它功能所必需的最小数据子集。您可以在 iOS 系统的<strong>“设置” > “隐私” > “健康” > [swimGo]</strong>中，随时查看和撤销对本应用的数据访问权限。</li>
+                </ul>
+                
+                <p style="margin-top: 20px; font-weight: 500;">这些数据可能包括：</p>
+                
+                <div class="data-types">
+                    <div class="data-type-item">游泳距离</div>
+                    <div class="data-type-item">游泳趟数</div>
+                    <div class="data-type-item">平均泳速</div>
+                    <div class="data-type-item">SWOLF分数</div>
+                    <div class="data-type-item">消耗的活跃能量/卡路里</div>
+                    <div class="data-type-item">游泳时长</div>
+                    <div class="data-type-item">下水时间</div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">2. 我们如何使用您的信息</h2>
+                <p>所有通过上述方式获取的数据，仅用于在您的设备上为您提供以下核心功能：</p>
+                
+                <ul>
+                    <li>在应用内可视化展示您的游泳历史记录和统计趋势。</li>
+                    <li>为您计算和分析游泳表现指标（如每趟平均时间、效率变化）。</li>
+                    <li>生成仅供您个人查看的图表和摘要。</li>
+                </ul>
+                
+                <p style="margin-top: 20px; font-weight: 600;">我们不会将您的数据用于：</p>
+                
+                <ul class="nested-list">
+                    <li>广告投放或营销。</li>
+                    <li>数据挖掘或分析以用于任何商业目的。</li>
+                    <li>与任何第三方（包括广告商、数据分析公司或其他服务提供商）分享、出售或出租。</li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">3. 数据的存储与安全</h2>
+                
+                <ul>
+                    <li>
+                        <strong>本地存储：</strong>您的所有游泳数据和分析结果都安全地存储在您自己的iOS设备本地沙箱中。这意味着数据物理上只存在于您的手机或平板电脑上。
+                    </li>
+                    <li>
+                        <strong>可选iCloud同步（如提供此功能）：</strong>如果您启用了iCloud同步功能，您的数据将通过苹果的iCloud服务在您个人名下的不同苹果设备之间加密同步。此过程由苹果公司控制，我们无法访问您的iCloud数据。您可以在iOS设备“设置”中管理iCloud同步。
+                    </li>
+                    <li>
+                        <strong>无服务器传输：</strong>我们没有后端服务器，因此您的健康数据永远不会离开您的设备或您的个人iCloud账户。
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">4. 数据共享</h2>
+                <p>我们绝不共享您的个人或健康数据。这是本应用设计的基石。</p>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">5. 您的权利与控制</h2>
+                <p>您对自己的数据拥有完全的控制权：</p>
+                
+                <ul>
+                    <li>
+                        <strong>访问与删除：</strong>您可以在本应用内直接查看、管理或删除所有由本应用生成的数据记录。
+                    </li>
+                    <li>
+                        <strong>健康数据权限：</strong>您可以在任何时候，通过 iOS 的<strong>“设置” > “隐私” > “健康” > [swimGo]</strong>，完全关闭本应用对健康数据的访问权限。关闭后，本应用将无法读取新的健康数据，但已存储在应用本地的数据（如有）仍会保留，除非您手动删除。
+                    </li>
+                    <li>
+                        <strong>彻底删除：</strong>卸载本应用将同时删除设备本地存储的所有相关数据。如果您曾使用iCloud同步，需在iCloud设置中删除相关数据。
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">6. 隐私政策的变更</h2>
+                <p>我们可能会不时更新本隐私政策。任何更改将在本页面发布更新后的隐私政策后生效。对于重大变更，我们将在应用内通过显著通知告知您。</p>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">7. 联系我们</h2>
+                <p>如果您对本隐私政策或本应用的数据处理方式有任何疑问、意见或疑虑，请通过以下方式联系我们：</p>
+                
+                <div class="contact-info">
+                    <p><strong>开发者：</strong> 游杜</p>
+                    <p><strong>电子邮箱：</strong> alexdyllmm@gmail.com</p>
+                </div>
+            </section>
+            
+            <div class="update-notice">
+                请定期查看此页面以了解隐私政策的任何更新。
+            </div>
+        </div>
+    </div>
 </body>
 </html>
